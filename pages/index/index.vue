@@ -19,8 +19,8 @@
 						<view class="img">
 							<image src="../../static/morentouxiang.jpg" mode=""></image>
 						</view>
-						<free-badge>1</free-badge>
-						<view class="mail-content">
+						<free-badge v-if="item.message" :Data="item.message"></free-badge>
+						<view class="mail-content" :style="item.message?'':'margin-left:40rpx;'">
 							<view class="left">
 								<view class="name">{{item.name}}</view>
 								<view class="name_s">{{item.lastInfo.name}}:{{item.lastInfo.content}}</view>
@@ -40,7 +40,7 @@
 <script>
 	import freeBadge from '@/components/free-badge/index.vue'
 	export default {
-		components:{
+		components: {
 			freeBadge
 		},
 		data() {
@@ -54,7 +54,8 @@
 							name: 'ckj',
 							content: '交作业了1'
 						},
-						createTime: '23:16'
+						createTime: '23:16',
+						message: 2
 					},
 					{
 						id: 2,
@@ -64,7 +65,8 @@
 							name: 'ckj',
 							content: '交作业了2'
 						},
-						createTime: '23:16'
+						createTime: '23:16',
+						message: 0
 					},
 					{
 						id: 3,
@@ -74,7 +76,8 @@
 							name: 'ckj',
 							content: '交作业了3'
 						},
-						createTime: '23:16'
+						createTime: '23:16',
+						message: 1
 					},
 				],
 				options: [{
@@ -183,7 +186,6 @@
 
 		.mail {
 			width: 100%;
-			// padding: 20rpx 0;
 
 			.item {
 				width: 100%;
@@ -209,13 +211,12 @@
 			}
 		}
 
-		
+
 
 		.mail-content {
 			flex: 1;
 			display: flex;
 			justify-content: space-between;
-			margin-left: 20rpx;
 			padding: 10rpx 0;
 			border-bottom: 1px solid #e5e5e5;
 

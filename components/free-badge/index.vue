@@ -1,14 +1,17 @@
 <template>
 	<view class='radius' :style="'width:'+width+'rpx;height:'+height+'rpx;right:'+right+'rpx;top:'+top+'rpx'"
-		style="position: relative;"
 	>
-	<slot></slot>
+	{{Data}}
 	</view>
 </template>
 
 <script>
 	export default {
 		props:{
+			Data:{
+				type:Number,
+				default:0
+			},
 			badgeClass:{
 				type:String,
 				default:""
@@ -54,6 +57,7 @@
 <style lang="scss">
 .radius {
 			color: white;
+			position: relative;
 			line-height: 40rpx;
 			text-align: center;
 			border-radius: 50%;
