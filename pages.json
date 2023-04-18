@@ -27,7 +27,7 @@
 				"enablePullDownRefresh": false
 			}
 		}
-	],
+    ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarBackgroundColor": "#ededed",

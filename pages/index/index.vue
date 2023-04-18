@@ -19,6 +19,7 @@
 						<view class="img">
 							<image src="../../static/morentouxiang.jpg" mode=""></image>
 						</view>
+						<free-badge>1</free-badge>
 						<view class="mail-content">
 							<view class="left">
 								<view class="name">{{item.name}}</view>
@@ -37,7 +38,11 @@
 </template>
 
 <script>
+	import freeBadge from '@/components/free-badge/index.vue'
 	export default {
+		components:{
+			freeBadge
+		},
 		data() {
 			return {
 				title: 'Hello',
@@ -100,7 +105,7 @@
 			search() {
 
 			},
-			cancelInfo(title,index) {
+			cancelInfo(title, index) {
 				uni.showModal({
 					title: '提示',
 					content: title,
@@ -117,10 +122,10 @@
 					case '标为已读':
 						break
 					case '不显示':
-						this.cancelInfo('不显示该聊天',index)
+						this.cancelInfo('不显示该聊天', index)
 						break
 					case '删除':
-						this.cancelInfo('删除该聊天',index)
+						this.cancelInfo('删除该聊天', index)
 						break
 				}
 			},
@@ -200,9 +205,11 @@
 			image {
 				width: 100%;
 				height: 100rpx;
-				border-radius: 15rpx;
+				border-radius: 20rpx;
 			}
 		}
+
+		
 
 		.mail-content {
 			flex: 1;
