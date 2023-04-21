@@ -1,8 +1,8 @@
 <template>
 	<uni-swipe-action-item :right-options="options" @click="onClick($event,index)" :show=isOpen>
-		<view class="item_body">
+		<view class="item_body" @longpress="press" @click="click(item)">
 			<view class="img">
-				<image src="../../static/morentouxiang.jpg" mode=""></image>
+				<image src="../../static/morentouxiang.jpg" mode="aspectFill"></image>
 			</view>
 			<free-badge v-if="item.message" :Data="item.message"></free-badge>
 			<view class="mail-content" :style="item.message?'':'margin-left:40rpx;'">
@@ -63,6 +63,12 @@
 						}
 					}
 				});
+			},
+			click(item){
+					this.$emit('click',item)
+			},
+			press(){
+				console.log(123);
 			},
 			onClick(e, index) {
 				switch (e.content.text) {

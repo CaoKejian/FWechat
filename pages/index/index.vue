@@ -14,7 +14,7 @@
 		</view>
 		<view class="mail">
 			<view class="item" v-for="item,index in mailList" :key="item.id">
-				<freeMediaList :item="item" :index="index"></freeMediaList>
+				<freeMediaList :item="item" :index="index" @click="gotoDetail"></freeMediaList>
 			</view>
 		</view>
 	</view>
@@ -71,9 +71,12 @@
 
 		},
 		methods: {
-			search() {
-
-			},
+			search() {},
+			gotoDetail(e){
+				uni.navigateTo({
+					url:'/views/mailDetail/mailDetail?item='+ JSON.stringify(e)
+				})
+			}
 		},
 	}
 </script>
