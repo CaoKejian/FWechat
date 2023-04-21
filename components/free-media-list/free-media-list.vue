@@ -11,7 +11,9 @@
 					<view class="name_s">{{item.lastInfo.name}}:{{item.lastInfo.content}}</view>
 				</view>
 				<view class="right">
-					<view class="time">{{item.createTime}}</view>
+					<view class="time">
+					<uni-dateformat :date="item.createTime" :threshold="[180000,3600000*24*30]"></uni-dateformat>
+					</view>
 					<view class="fake"></view>
 				</view>
 			</view>
@@ -66,6 +68,7 @@
 			},
 			click(item){
 					this.$emit('click',item)
+					item.message = 0
 			},
 			press(){
 				console.log(123);

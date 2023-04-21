@@ -20,7 +20,6 @@
 		},
 		onLoad(e) {
 			const item = JSON.parse(e.item)
-			console.log(item);
 			uni.setNavigationBarTitle({
 				title: item.name
 			})
